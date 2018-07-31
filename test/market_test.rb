@@ -123,5 +123,17 @@ class MarketTest < Minitest::Test
     actual   = 45
 
     assert_equal expected, actual
+
+    assert @market.sell('Peaches', 40)
+
+    expected2 = 0
+    actual2   = @vendor1.check_stock('Peaches')
+
+    assert_equal expected2, actual2
+
+    expected3 = 60
+    actual3   = @vendor3.check_stock('Peaches')
+
+    assert_equal expected3, actual3
   end
 end
