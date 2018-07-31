@@ -81,4 +81,31 @@ class MarketTest < Minitest::Test
 
     assert_equal expected2, actual2
   end
+
+  def test_it_returns_a_sorted_unique_list
+    @market.add_vendor(@vendor1)
+    @market.add_vendor(@vendor2)
+    @market.add_vendor(@vendor3)
+
+    expected = ['Banana Nice Cream', 'Peach-Raspberry Nice Cream', 'Peaches', 'Tomatoes']
+    actual   = @market.sorted_item_list
+
+    assert_equal expected, actual
+  end
+
+  def test_it_returns_total_inventory_as_a_hash
+    @market.add_vendor(@vendor1)
+    @market.add_vendor(@vendor2)
+    @market.add_vendor(@vendor3)
+
+    expected = {
+      'Peaches'                    => 100,
+      'Tomatoes'                   => 7,
+      'Banana Nice Cream'          => 50,
+      'Peach-Raspberry Nice Cream' => 25
+    }
+    actual = @market.total_inventory
+
+    assert_equal expected, actual
+  end
 end
