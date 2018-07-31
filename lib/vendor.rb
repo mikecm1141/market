@@ -2,8 +2,9 @@
 
 # Vendor class
 class Vendor
-  attr_reader :name,
-              :inventory
+  attr_reader   :name
+
+  attr_accessor :inventory
 
   def initialize(name)
     @name = name

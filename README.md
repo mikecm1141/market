@@ -107,7 +107,7 @@ pry(main)> market.add_vendor(vendor_2)
 pry(main)> market.add_vendor(vendor_3)    
 #=> [#<Vendor:0x00007fe1348a1160...>, #<Vendor:0x00007fe1349bed40...>, #<Vendor:0x00007fe134910650...>]
 
-pry(main)> market.vendors
+pry(main)> market.vendorsg
 #=> [#<Vendor:0x00007fe1348a1160...>, #<Vendor:0x00007fe1349bed40...>, #<Vendor:0x00007fe134910650...>]
 
 pry(main)> market.vendor_names

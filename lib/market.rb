@@ -40,6 +40,24 @@ class Market
     inventory_hash
   end
 
+  def sell(item, quantity)
+    return false unless total_inventory[item] >= quantity
+
+    until quantity.zero?
+      @vendors.each do |vendor|
+        next unless vendor.inventory.key?(item)
+        difference = vendor.inventory[item] - quantity
+        if difference.positive?
+          vendor.inventory[item] = difference
+          quantity = 0
+        else
+          quantity -= vendor.inventory[item]
+        end
+      end
+    end
+    true
+  end
+
   private
 
   def vendor_items
